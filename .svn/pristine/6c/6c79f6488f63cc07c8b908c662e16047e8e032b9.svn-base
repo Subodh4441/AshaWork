@@ -1,0 +1,133 @@
+
+<div class="popup-header">
+    <a (click)="onCancel()"><i class="fa-solid fa-xmark"></i></a>
+</div>
+<div class="popup-body">
+<div class="row table-scroll" >
+    <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">MKTF No</label>
+        <input type="text" [(ngModel)]="mktfNo" maxlength="10" placeholder="Enter MKTF No" class="input-filed"/> 
+      </div>
+    
+     <div class="col-xl-6 col-md-6 col-lg-6"  >
+        <label class="d-block">Machine Id</label>
+        <input type="text" [(ngModel)]="machineID" placeholder="Enter  Machine Id" class="input-filed"/> 
+      </div>
+    
+     <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">Client</label>
+        <select class="input-filed" [(ngModel)]="clientName" required>
+          <option value="" disabled selected>--- Select Client Name ---</option>
+          <option *ngFor="let client of clientList" [value]="client.clientName">{{ client.clientName }}</option>
+        </select>
+      </div>
+
+      <div class="col-xl-6 col-md-6 col-lg-6" >
+        <label class="d-block">Product</label>
+        <select  class="input-filed" [(ngModel)]="product" required>
+            <option value="" disabled selected>--- Select Product ---</option>
+            <option *ngFor="let product of productList" [value]="product.prodName">{{ product.prodName }}</option>
+        </select>
+      </div>
+
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">Country</label>
+        <select class="input-filed" [(ngModel)]="countryName" name="countryName" (change)="onCountryChange($event)" required>
+          <option value="" disabled selected>--- Select Country ---</option>
+          <option *ngFor="let country of countryList" [value]="country.countryid">{{ country.countryName }}</option>
+        </select>
+      </div>
+      
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">State</label>
+        <select class="input-filed" [(ngModel)]="stateName" name="stateName" (change)="onStateChange($event)" required>
+          <option value="" disabled selected>--- Select State ---</option>
+          <option *ngIf="isEditEnable" [ngValue]="stateName">{{ stateName }}</option>
+          <option *ngFor="let state of stateList" [value]="state.stateName">{{ state.stateName }}</option>
+        </select>
+      </div>
+      
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">City</label>
+        <select class="input-filed" [(ngModel)]="cityName" name="cityName" required>
+          <option value="" disabled selected>--- Select City ---</option>
+          <option *ngIf="isEditEnable" [ngValue]="cityName">{{ cityName }}</option>
+          <option *ngFor="let city of cityList" [value]="city.cityName">{{ city.cityName }}</option>
+        </select>
+      </div>
+      
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">Area Class</label>
+        <select class="input-filed" [(ngModel)]="areaClass" required>
+          <option value="" disabled selected>--- Select Area Class ---</option>
+          <option *ngFor="let class of areaClassList" [value]="class.Classname">{{ class.Classname }}</option>
+        </select>
+      </div>
+    
+      <div class="col-xl-6 col-md-6 col-lg-6"  >
+        <label class="d-block">Branch Code</label>
+        <input type="text" [(ngModel)]="branchCode" placeholder="Enter  Branch Code" class="input-filed"/> 
+      </div>
+
+     <div class="col-xl-6 col-md-6 col-lg-6"  >
+        <label class="d-block">Branch Name</label>
+        <input type="text" [(ngModel)]="branchName" placeholder="Enter Branch Name" class="input-filed"/> 
+     </div>
+
+     <div class="col-xl-6 col-md-6 col-lg-6">
+      <label class="d-block">Service Agencies</label>
+      <select class="input-filed" [(ngModel)]="serviceAgency" required>
+        <option value="" disabled selected>--- Select Service Agency ---</option>
+        <option *ngFor="let serviceAgency of ServiceagencyList" [value]="serviceAgency.id">{{ serviceAgency.serviceAgencyName }}</option>
+      </select>
+    </div>
+
+      <div class="col-xl-6 col-md-6 col-lg-6"  >
+        <label class="d-block">Installation Date</label>
+        <input type="date" [(ngModel)]="installationDate" placeholder="Installation Date" class="input-filed"/> 
+     </div>
+
+     <div class="col-xl-6 col-md-6 col-lg-6" >
+        <label class="d-block">Account Manager</label>
+        <select  class="input-filed" [(ngModel)]="accountManager">
+            <option value="" disabled selected>--- Select Acc Manager ---</option>
+          <option value="Subodh" >Subodh</option>
+          <option value="Akshay" >Akshay</option>
+        </select>
+      </div>
+
+      <div class="col-xl-6 col-md-6 col-lg-6"  >
+        <label class="d-block">IP Address</label>
+        <input type="text" [(ngModel)]="ipAddress" placeholder="Enter IP Address" class="input-filed"/> 
+     </div>
+
+     <div class="col-xl-6 col-md-6 col-lg-6" >
+        <label class="d-block">Site Type</label>
+        <select  class="input-filed" [(ngModel)]="siteType" >
+            <option value="" disabled selected>--- Select Site Type ---</option>
+          <option value="OnSite" >OnSite</option> 
+          <option value="OffSite" >OffSite</option> 
+        </select>
+      </div>
+
+      <div class="col-xl-6 col-md-6 col-lg-6"  >
+        <label class="d-block">Sabnet Mask</label>
+        <input type="text" [(ngModel)]="subnetMask" placeholder="Enter Sabnet Mask" class="input-filed"/> 
+     </div>
+
+     <div class="col-xl-6 col-md-6 col-lg-6"  >
+        <label class="d-block">MAC Address</label>
+        <input type="text" [(ngModel)]="macAddress" placeholder="Enter MAC Address" class="input-filed"/> 
+     </div>
+
+     <div class="col-xl-6 col-md-6 col-lg-6"  >
+        <label class="d-block">Branch Address</label>
+        <input type="text" [(ngModel)]="branchAddress" placeholder="Enter Branch Address" class="input-filed"/> 
+     </div>
+</div>
+  
+  <div class="actions">
+    <button (click)="onSaveBranch()">{{ isEditMode ? 'Update' : 'Save' }}</button>
+     <button type="button" (click)="onCancel()">Cancel</button>
+  </div>
+</div>

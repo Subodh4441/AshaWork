@@ -1,0 +1,219 @@
+<!-- <div class="popup-header">
+  <a (click)="onCancel()">x</a>
+</div>
+<div class="popup-body">
+ 
+  <div class="form-container">
+   
+    <div class="row">
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <select [(ngModel)]="selectedRegion" (change)="onRegionChange()" class="input-filed">
+          <option value="" disabled selected>--- Select Region ---</option>
+          <option *ngFor="let region of selectRegion" [value]="region">{{ region }}</option>
+        </select>
+      </div>
+      <div class="col-xl-6 col-md-6 col-lg-6" *ngIf="selectedRegion === 'Country'">
+        <input
+          type="text"
+          [(ngModel)]="regionName"
+          placeholder="Enter Country Name"
+          class="input-filed"
+        />
+      </div>
+      <div class="col-xl-12 col-md-12 col-lg-12" *ngIf="selectedRegion === 'State'">
+        <div class="col-xl-6 col-md-6 col-lg-6" >
+          <select [(ngModel)]="selectedCountry" (change)="onCountryChange()" class="input-filed">
+            <option selected>--- Select Country ---</option>
+            <option *ngFor="let country of countries" [ngValue]="country">{{ country.name }}</option>
+          </select>
+        </div>
+        <div class="col-xl-6 col-md-6 col-lg-6">
+          <input
+            type="text"
+            [(ngModel)]="regionName"
+            placeholder="Enter State Name"
+            class="input-filed"
+          />
+        </div>
+      </div>
+      
+    </div>
+
+  
+    <div class="row" *ngIf="selectedRegion === 'City'">
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <select [(ngModel)]="selectedCountry" (change)="onCountryChange()" class="input-filed">
+          <option value="" disabled selected>--- Select Country ---</option>
+          <option *ngFor="let country of countries" [ngValue]="country">{{ country.name }}</option>
+        </select>
+      </div>
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <select [(ngModel)]="selectedState" (change)="onStateChange()" class="input-filed">
+          <option value="" disabled selected>--- Select State ---</option>
+          <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
+        </select>
+      </div>
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <input
+          type="text"
+          [(ngModel)]="regionName"
+          placeholder="Enter City Name"
+          class="input-filed"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button (click)="onSave()">Save</button>
+  </div>
+</div> -->
+
+<!-- 
+<div class="popup-header">
+  <a (click)="onCancel()">x</a>
+</div>
+<div class="popup-body">
+  <div class="form-container">
+
+    <div class="row">
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <select disabled [(ngModel)]="selectedRegion" (change)="onRegionChange()" class="input-filed">
+
+          <option *ngIf="isEditEnable" [ngValue]="selectedRegion">{{ selectedRegion }}</option>
+          <option *ngFor="let region of selectRegion" [ngValue]="region">{{ region }}</option>
+        </select>
+      </div>
+
+      <div class="col-xl-6 col-md-6 col-lg-6" *ngIf="selectedRegion === 'Country'">
+        <input
+          type="text"
+          [(ngModel)]="regionName"
+          placeholder="Enter Country Name"
+          class="input-filed"
+        />
+      </div>
+
+    
+      <div class="col-xl-12 col-md-12 col-lg-12" *ngIf="selectedRegion === 'State'">
+        <div class="col-xl-6 col-md-6 col-lg-6">
+          <select [(ngModel)]="selectedCountry" (change)="onCountryChange()" class="input-filed">
+            <option disabled *ngIf="isEditEnable" [ngValue]="selectedCountry">{{ selectedCountry?.name }}</option>
+            <option *ngFor="let country of countries" [ngValue]="country">{{ country.name }}</option>
+          </select>
+        </div>
+        <div class="col-xl-6 col-md-6 col-lg-6">
+          <input
+            type="text"
+            [(ngModel)]="regionName"
+            placeholder="Enter State Name"
+            class="input-filed"
+          />
+        </div>
+      </div>
+    </div>
+
+ 
+    <div class="row" *ngIf="selectedRegion === 'City'">
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <select [(ngModel)]="selectedCountry" (change)="onCountryChange()" class="input-filed">
+          <option disabled *ngIf="isEditEnable" [ngValue]="selectedCountry">{{ selectedCountry?.name }}</option>
+          <option *ngFor="let country of countries" [ngValue]="country">{{ country.name }}</option>
+        </select>
+      </div>
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <select [(ngModel)]="selectedState" (change)="onStateChange()" class="input-filed">
+          <option disabled *ngIf="isEditEnable" [ngValue]="selectedState">{{ selectedState?.name }}</option>
+          <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
+        </select>
+      </div>
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <input
+          type="text"
+          [(ngModel)]="regionName"
+          placeholder="Enter City Name"
+          class="input-filed"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button (click)="onSave()">Save</button>
+  </div>
+</div> -->
+
+
+<div class="popup-header">
+  <a (click)="onCancel()"><i class="fa-solid fa-xmark"></i></a>
+</div>
+<div class="popup-body">
+  <!-- <h2>Add Region</h2> -->
+  <div class="form-container">
+    <!-- Region Dropdown -->
+    <div class="row d-flex">
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <select [(ngModel)]="selectedRegion" (change)="onRegionChange()" class="input-filed">
+          <option value="" disabled selected>--- Select Region ---</option>
+          <option *ngFor="let region of selectRegion" [value]="region">{{ region }}</option>
+        </select>
+      </div>
+      <div class="col-xl-6 col-md-6 col-lg-6" *ngIf="selectedRegion === 'Country'">
+        <input
+          type="text"
+          [(ngModel)]="regionName"
+          placeholder="Enter Country Name"
+          class="input-filed"
+        />
+      </div>
+      <span class="d-flex row" *ngIf="selectedRegion === 'State'">
+        <div class="col-xl-6 col-md-6 col-lg-6" >
+          <select [(ngModel)]="selectedCountry" (change)="onCountryChange()" class="input-filed">
+            <option value="" disabled selected>--- Select Country ---</option>
+            <option disabled *ngIf="isEditEnable" [ngValue]="selectedCountry">{{ selectedCountry?.name }}</option>
+            <option *ngFor="let country of countries" [ngValue]="country">{{ country.name }}</option>
+          </select>
+        </div>
+        <div class="col-xl-6 col-md-6 col-lg-6">
+          <input
+            type="text"
+            [(ngModel)]="regionName"
+            placeholder="Enter State Name"
+            class="input-filed"
+          />
+        </div>
+      </span>
+     
+    
+ 
+    <span class="d-flex row flex-wrap" *ngIf="selectedRegion === 'City'">
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <select [(ngModel)]="selectedCountry" (change)="onCountryChange()" class="input-filed">
+          <option value="" disabled selected>--- Select Country ---</option>
+          <option disabled *ngIf="isEditEnable" [ngValue]="selectedCountry">{{ selectedCountry?.name }}</option>
+          <option *ngFor="let country of countries" [ngValue]="country">{{ country.name }}</option>
+        </select>
+      </div>
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <select [(ngModel)]="selectedState" (change)="onStateChange()" class="input-filed">
+          <option value="" disabled selected>--- Select State ---</option>
+          <option disabled *ngIf="isEditEnable" [ngValue]="selectedState">{{ selectedState?.name }}</option>
+          <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
+        </select>
+      </div>
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <input
+          type="text"
+          [(ngModel)]="regionName"
+          placeholder="Enter City Name"
+          class="input-filed"
+        />
+      </div>
+    </span>
+  </div>
+  </div>
+ 
+  <div class="actions">
+    <button (click)="onSave()">{{savetext}}</button>
+  </div>
+</div>

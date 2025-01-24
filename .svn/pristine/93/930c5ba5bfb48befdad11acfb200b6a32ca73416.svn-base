@@ -1,0 +1,81 @@
+
+<div class="right-side-content">
+    <h1 class="headline">Branches</h1>
+    <hr>
+    <div class="tabletopbuttons">
+        <div class="searchcontainer">
+          <input placeholder="Search" type="search" class="input-filed" [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()">
+        </div>
+        <div class="actionbuttons">
+          <button class="export" title="Add Branch"(click)="handleClick()">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <!-- <button class="export" title="Bulk Upload" (click)="openbulkPopup('branch')">
+            <i class="fa-solid fa-upload"></i>
+          </button> -->
+          <button class="export" title="Export PDF" (click)="exportPDF()">
+            <i class="fa-regular fa-file-pdf"></i>
+          </button>
+          <button class="export" title="Export Excel" (click)="exportExcel()">
+            <i class="fa-regular fa-file-excel"></i>
+          </button>
+        </div>
+    </div>
+
+    <div class="table-scroll">
+        <table>
+            <thead>
+                <tr>
+                  <th>Edit</th>
+                  <th style="width: 50%;">Machine ID</th>
+                  <th>Client Name</th>
+                  <th>Product</th>
+                  <th>State Name</th>
+                  <th>City Name</th>
+                  <th>Area Class</th>
+                  <th>Branch Code</th>
+                  <th>Branch Name</th>
+                  <th>Service Agency</th>
+                  <th>Installation Date</th>
+                  <th>Account Manager</th>
+                  <th>IP Address</th>
+                  <th>Site Type</th>
+                  <th>MAC Address</th>
+                  <th>Branch Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let branch of branchesForCurrentPage">
+                  <td data-label="Edit">
+                    <i  title="Edit" class="fa-solid fa-pen-to-square cursor" (click)="handleeditClick(branch)"></i>
+                  </td>
+                  <td data-label="Machine ID">{{ branch.machineID }}</td>
+                  <td data-label="Client Name">{{ branch.clientName }}</td> 
+                  <td data-label="Product">{{ branch.product }}</td> 
+                  <td data-label="State Name">{{ branch.stateName }}</td> 
+                  <td data-label="City Name">{{ branch.cityName }}</td>
+                  <td data-label="Area Class">{{ branch.areaClass }}</td> 
+                  <td data-label="Branch Code">{{ branch.branchCode }}</td> 
+                  <td data-label="Branch Name">{{ branch.branchName }}</td> 
+                  <td data-label="Service Agency">{{ branch.serviceAgency }}</td> 
+                  <td data-label="Installation Date">{{ branch.installationDate | date }}</td>
+                  <td data-label="Account Manager">{{ branch.accountManager }}</td>
+                  <td data-label="IP Address">{{ branch.ipAddress }}</td>
+                  <td data-label="Site Type">{{ branch.siteType }}</td>
+                  <td data-label="MAC Address">{{ branch.macAddress }}</td>
+                  <td data-label="Branch Address">{{ branch.branchAddress }}</td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+    <div class="pagination-controls">
+      <button class="export" (click)="changePage(1)" [disabled]="currentPage === 1"><i class="fa-solid fa-angles-left"></i></button>
+      <button class="export" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1"><i class="fa-solid fa-arrow-left"></i></button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button class="export" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages"><i class="fa-solid fa-arrow-right"></i></button>
+      <button class="export" (click)="changePage(totalPages)" [disabled]="currentPage === totalPages"><i class="fa-solid fa-angles-right"></i></button>
+    </div>
+</div>
+
+          
+            

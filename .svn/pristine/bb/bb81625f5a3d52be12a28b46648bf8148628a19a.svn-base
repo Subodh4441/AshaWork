@@ -1,0 +1,15 @@
+import {
+  InputText,
+  InputTextModule
+} from "./chunk-EOPI7RL6.js";
+import "./chunk-UOHNQRCR.js";
+import "./chunk-XT2TMF72.js";
+import "./chunk-DDPSM2FS.js";
+import "./chunk-VNXMPKJV.js";
+import "./chunk-OBCKPMKI.js";
+import "./chunk-RM45IPHL.js";
+export {
+  InputText,
+  InputTextModule
+};
+//# sourceMappingURL=primeng_inputtext.js.map

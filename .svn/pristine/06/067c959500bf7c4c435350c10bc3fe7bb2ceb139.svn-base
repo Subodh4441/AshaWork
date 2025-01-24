@@ -1,0 +1,45 @@
+
+<app-navbar></app-navbar>
+<main>
+  <div class="d-flex">
+      <app-sidebar class="left-side-bar"></app-sidebar>
+    
+      @switch (storedValue) {
+          @case ("clients") {
+              <app-client class="right-side-container"></app-client>
+            } 
+            @case ("products") {
+             <app-product class="right-side-container"></app-product>
+            } 
+            @case ("regions") {
+             <app-region class="right-side-container"></app-region>
+            }
+            @case ("users") {
+              <app-users class="right-side-container"></app-users>
+             } 
+            @case ("branches"){
+              <app-branches class="right-side-container"></app-branches>
+            }
+            @case ("spare"){
+              <app-spare class="right-side-container"></app-spare>
+            }
+            @case ("rolesandrights"){
+              <app-roleandrights class="right-side-container"></app-roleandrights>
+            }
+            @case ("service-agency") {
+              <app-service-agency class="right-side-container"> </app-service-agency>
+             }
+             @case ("tenant") {
+              <app-tenant class="right-side-container"> </app-tenant>
+             }
+             @case ("experia") {
+              <app-experia class="right-side-container"> </app-experia>
+             }
+             @default {
+              <app-client class="right-side-container"></app-client>
+            }
+        }
+
+      
+  </div>
+</main>

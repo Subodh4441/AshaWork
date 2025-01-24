@@ -1,0 +1,79 @@
+<div class="right-side-content">
+  <h1 class="headline">Users</h1>
+  <hr>
+  <div class="tabletopbuttons">
+    
+      <div class="searchcontainer">
+        <input placeholder="Search" type="search" class="input-filed" [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()">
+    </div>
+    
+    
+    <div class="actionbuttons">
+      <button class="export" title="Add User" (click)="handleClick()">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <!-- <button class="export" title="Bulk Upload" (click)="onBulkUpload()">
+        <i class="fa-solid fa-upload"></i>
+      </button> -->
+      <button id="export-pdf" class="export" title="Export PDF" (click)="exportPDF()">
+        <i class="fa-regular fa-file-pdf"></i>
+      </button>
+      <button id="export-excel" class="export" title="Export Excel" (click)="exportExcel()">
+        <i class="fa-regular fa-file-excel"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="table-scroll">
+    <table>
+        <thead>
+      <tr>
+        <th>Edit</th>
+        <th>Login ID</th>
+        <th>User Name</th>
+        <th>Role Name</th>
+        <th>Mobile Number</th>
+        <th>Employee ID</th>
+        <th>Status</th>
+        <th>Change Password</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersForCurrentPage">
+        <td data-label="Edit"><i  title="Edit" class="fa-solid fa-pen-to-square cursor" (click)="user.userID ? handleeditClick(user) : null"></i></td>
+        <td>{{ user.userID }}</td> 
+        <td>{{ user.userName }}</td>
+        <td>{{ user.roleName }}</td>
+        <td>{{ user.mobileNumber }}</td>
+        <td>{{ user.employeeCode }}</td>
+        <!-- <td>{{ user.isActive == true ? 'Active':'Inactive' }}</td> -->
+        <td data-label="Status">
+         
+              <input
+              class="form-check-input"
+              type="checkbox"
+              id="activeCheckbox"
+              [(ngModel)]="user.isActive"
+              name="Status"
+              disabled="true"
+            />
+      </td>
+
+
+        <td (click)="user.userID ? onChangePassword(user.userID) : null"><i class="fa-solid fa-key cursor"></i></td>
+        <td><i class="fa-solid fa-trash cursor" (click)="user.userID ? onDeleteUser(user.userID) : null"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    <p *ngIf="users.length === 0">No users available.</p>
+  </div>
+  <div class="pagination-controls">
+    <button class="export" (click)="changePage(1)" [disabled]="currentPage === 1"><i class="fa-solid fa-angles-left"></i></button>
+    <button class="export" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1"><i class="fa-solid fa-arrow-left"></i></button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button class="export" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages"><i class="fa-solid fa-arrow-right"></i></button>
+    <button class="export" (click)="changePage(totalPages)" [disabled]="currentPage === totalPages"><i class="fa-solid fa-angles-right"></i></button>
+  </div>
+</div>

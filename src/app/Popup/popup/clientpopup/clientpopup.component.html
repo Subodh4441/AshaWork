@@ -1,0 +1,57 @@
+
+<div class="popup-header">
+    <a (click)="onCancel()"><i class="fa-solid fa-xmark"></i></a>
+</div>
+<div class="popup-body">
+    <!-- <h2>{{selectedModule}}</h2> -->
+    <div class="form-container">
+</div>
+<!-- <div class="tabs">
+  <button (click)="setSelectedModule('Region')">Region</button>
+  <button (click)="setSelectedModule('Client')">Client</button>
+</div> -->
+<div class="row">
+        <div class="col-xl-6 col-md-6 col-lg-6">
+          <label class="d-block">Client Name</label>
+          <input
+            type="text"
+            (input)="onClientNameInput()"
+            required
+            maxlength="100" 
+            pattern="^[a-zA-Z]+$"  
+            [(ngModel)]="clientName"
+            placeholder="Enter Client Name"
+            class="input-filed"
+          />
+      </div>
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">Client Abbr</label>
+        <input
+          type="text"
+          [(ngModel)]="clientAbbr"
+          (ngModelChange)="onClientAbbrChange($event)"
+          placeholder="Enter Client Abbr"
+          maxlength="10" 
+          class="input-filed"
+        />
+      </div>
+    
+     <div class="col-xl-6 col-md-6 col-lg-6" >
+        <label class="d-block">Project Owner</label>
+        <select [(ngModel)]="projectOwner" (change)="onProjectOwner()" class="input-filed">
+            <option value="" disabled selected>--- Select User ---</option>
+          <option *ngFor="let proowner of owner" [value]="proowner">{{ proowner }}</option>
+        </select>
+      </div>
+    
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">Active</label>
+        <input type="checkbox" [(ngModel)]="isActive" /> 
+      </div>
+</div>
+  
+<!-- <ng-container *ngComponentOutlet="outletComponent"></ng-container> -->
+  <div class="actions">
+     <button (click)="onSaveClient()">{{savetext}}</button>
+  </div>
+</div>

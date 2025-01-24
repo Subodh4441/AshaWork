@@ -1,0 +1,208 @@
+<div class="right-side-content">
+  <h1 class="headline">Roles & Rights</h1>
+  <hr>
+  <div class="tabletopbuttons">
+        
+    <div class="searchcontainer">
+      <select [(ngModel)]="roleandrights" (change)="onRoles()" class="input-filed">
+        <option value="" disabled selected>--- Select User ---</option>
+        <option *ngFor="let r of role" [value]="r.role_id">{{ r.role_name }}</option>
+      </select>
+    </div>
+    <div class="actionbuttons">
+        <button id="" class="export" title="Add Roles" (click)="addRoles()">
+            <!-- <i class="fa-solid fa-plus"></i> -->
+            <!-- <i class="fa-solid  fa-circle-plus"></i> -->
+            <i class="fa-solid fa-plus"></i>
+
+        </button>
+      
+    </div>
+</div>
+  <div class="table-scroll">
+    <div class="main-menu">
+      <table class="menu-table">
+        <thead>
+          <tr>
+            <th></th> <!-- First column: Plus Icon -->
+            <th>Menu Name</th> <!-- Second column: Menu Name -->
+            <th>Toggle</th> <!-- Third column: Toggle Button -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Masters Row -->
+          <tr>
+            <td style="width: 10%;">
+              <button class="toggle-btn" (click)="toggleSubMenu('masters')">
+                <i title="Expand" class="fa-solid fa-plus"></i>
+              </button>
+            </td>
+            <td>Masters</td>
+            <td colspan="4" style="text-align: left;">
+              <button (click)="toggleAllPermissions()" class="toggle-btn">
+                <i class="fa-solid" [ngClass]="{ 'fa-toggle-on': selectAll, 'fa-toggle-off': !selectAll }"></i>
+               
+              </button>
+            </td>
+           
+            <!-- Submenu for Masters -->
+            <tr *ngIf="showMasters">
+              <td colspan="3">
+                <div class="table-wrapper">
+                  <table class="submenu-table">
+                    <thead>
+                      <tr>
+                        <th>Sub Module</th>
+                        <th>Add</th>
+                        <th>Edit</th>
+                        <th>View</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                   
+                      <tr *ngFor="let item of mastersSubMenu">
+                        <td>{{ item.menuName }}</td>
+                        <!-- Add Permission -->
+                        <td>
+                          <input
+                            type="checkbox"
+                            [(ngModel)]="item.can_add"
+                            (change)="updateSelectAllState()"
+                          />
+                        </td>
+                        <!-- Edit Permission -->
+                        <td>
+                          <input
+                            type="checkbox"
+                            [(ngModel)]="item.can_edit"
+                            (change)="updateSelectAllState()"
+                          />
+                        </td>
+                        <!-- View Permission -->
+                        <td>
+                          <input
+                            type="checkbox"
+                            [(ngModel)]="item.can_view"
+                            (change)="updateSelectAllState()"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="4" style="text-align: center;">
+                          <button (click)="saveRights()" class="btn btn-primary">
+                            Save Rights
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                    
+                  </table>
+                </div>
+              </td>
+         
+            <!-- CMS Row -->
+            <tr>
+              <td style="width: 10%;">
+                <button class="toggle-btn" (click)="toggleSubMenu('cms')">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </td>
+              <td>CMS</td>
+              <td style="width: 10%;">
+                <button (click)="toggleSubMenu('cms')" class="toggle-btn">
+                  <i class="fa-solid" [ngClass]="{'fa-toggle-on': showCms, 'fa-toggle-off': !showCms}"></i>
+                </button>
+              </td>
+            </tr>
+  
+            <!-- Submenu for CMS -->
+            <tr *ngIf="showCms">
+              <td colspan="3">
+                <div class="table-wrapper">
+                  <table class="submenu-table">
+                    <thead>
+                      <tr>
+                        <th>Sub Module</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of cmsSubMenu">
+                        <td>{{ item }}</td>
+                        <td>
+                         
+                        </td>
+                        <td>
+                         
+                        </td>
+                        
+                        <!-- <td>
+                          <button class="toggle-btn" (click)="toggleAction('view', item)">
+                            <i class="fa-solid" [ngClass]="{'fa-toggle-off': actions[item]?.view, 'fa-toggle-on': !actions[item]?.view}"></i>
+                          </button>
+                        </td> -->
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+  
+            <!-- Reports Row -->
+            <tr>
+              <td style="width: 10%;">
+                <button class="toggle-btn" (click)="toggleSubMenu('reports')">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </td>
+              <td>Reports</td>
+              <td>
+                <button (click)="toggleSubMenu('reports')" class="toggle-btn">
+                  <i class="fa-solid" [ngClass]="{'fa-toggle-on': showReports, 'fa-toggle-off': !showReports}"></i>
+                </button>
+              </td>
+            </tr>
+  
+            <!-- Submenu for Reports -->
+            <tr *ngIf="showReports">
+              <td colspan="3">
+                <div class="table-wrapper">
+                  <table class="submenu-table">
+                    <thead>
+                      <tr>
+                        <th>Sub Module</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <!-- <tbody>
+                      <tr *ngFor="let item of reportsSubMenu">
+                        <td>{{ item }}</td>
+                        <td>
+                         
+                        </td>
+                        <td>
+                         
+                        <td>
+                          <button class="toggle-btn" (click)="toggleAction('view', item)">
+                            <i class="fa-solid" [ngClass]="{'fa-toggle-off': actions[item]?.view, 'fa-toggle-on': !actions[item]?.view}"></i>
+                          </button>
+                          
+                        </td>
+                      </tr>
+                    </tbody> -->
+                    
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

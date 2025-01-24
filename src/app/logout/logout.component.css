@@ -1,0 +1,13 @@
+.error-text {
+    letter-spacing: 1px;
+    font-size: 480%;
+    color: #666;
+}
+
+.semi-bold {
+    font-weight: 400 !important;
+}
+
+.lead {
+    font-size: 19px;
+}

@@ -1,0 +1,131 @@
+
+<div class="popup-header">
+  <h3><b>{{savetext1}}</b></h3>
+    <a (click)="onCancel()">x</a>
+</div>
+<div class="popup-body">
+
+    <div class="form-container">
+</div>
+
+<div class="row">
+
+
+
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">Service Agency Name</label>
+        <input type="text" maxlength="40" required
+          pattern="^[a-zA-Z]+$" [(ngModel)]="serviceAgencyName" placeholder="Enter Service Agency Name" class="input-filed" />
+      </div>
+      <div class="col-xl-6 col-md-6 col-lg-6" >
+        <label class="d-block">State</label>
+   <!-- State Dropdown -->
+   <select [(ngModel)]="stateId" (change)="onStateChange(stateId)"  class="input-filed" required>
+    <option [value]="null" selected >--- Select State ---</option>
+    <option *ngFor="let state of stateOptions" [value]="state.stateId">{{ state.stateName }}</option>
+  </select>
+          
+      </div>
+ 
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">City</label>
+        <select [(ngModel)]="cityId" (change)="onCityChange(cityId)" class="input-filed" required>
+          <option value=""  selected>--- Select City ---</option>
+          <option *ngFor="let city of cityOptions" [value]="city.id">{{ city.name }}</option>
+          <!-- <ng-container *ngFor="let state of stateOptions">
+            <option *ngFor="let city of state.cities" [value]="city.cityId">
+              {{ city.cityName }}
+            </option>
+          </ng-container> -->
+        </select>
+      </div>
+      
+      
+    
+     <div class="col-xl-6 col-md-6 col-lg-6"  >
+        <label class="d-block">Address</label>
+        <input type="text" [(ngModel)]="address" placeholder="Enter  Address" class="input-filed"/> 
+        <!-- <select [(ngModel)]="selectedState" (change)="onStateChange()" [disabled]="!states.length" class="input-filed">
+          <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+        </select> -->
+      </div>
+      
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">Pin Code</label>
+        <input 
+          type="text" 
+          maxlength="6" 
+          (keydown)="onPinCodeKeyDown($event)" 
+          (input)="onPinCodeInput($event)" 
+          required 
+          pattern="^[0-9]+$" 
+          [(ngModel)]="pinCode" 
+          placeholder="Enter Pin Code" 
+          class="input-filed"
+        />
+        <div *ngIf="!isPincodeValid && pinCode" class="error-message">
+          Please enter a valid 6-digit pin code.
+        </div>
+      </div>
+      
+
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">Contact Name</label>
+        <input type="text" maxlength="20"   (input)="onClientNameInput()" 
+      required 
+        pattern="^[a-zA-Z]+$"   [(ngModel)]="contactName" placeholder="Enter Contact Name" class="input-filed"/> 
+        
+      </div>
+
+      
+      <div class="col-xl-6 col-md-6 col-lg-6">  
+        <label class="d-block">Contact Mobile</label>
+        <input type="text" maxlength="10"  (keydown)="onPinCodeKeyDown($event)"   (input)="onMobileNoInput($event)" 
+      required 
+        pattern="^[0-9]+$"   [(ngModel)]="contactMobile" placeholder="Enter Contact Mobile" class="input-filed"/> 
+        <div *ngIf="!isMobileValid && contactMobile" class="error-message">
+          Please enter a valid 10-digit mobile number.
+        </div>
+      </div>
+ 
+
+
+
+
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">Contact Email ID</label>
+        <input 
+          type="text" 
+          maxlength="50" 
+          pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" 
+          [(ngModel)]="contactEmail" 
+          (input)="onClientNameInput1()" 
+          required 
+          placeholder="Enter Contact Email ID" 
+          class="input-filed" 
+        />
+        <div *ngIf="!isGmailValid && contactEmail" class="error-message">
+          Please enter a valid Contact Email ID.
+        </div>
+      </div>
+      
+      
+      
+    
+    
+      <div class="col-xl-6 col-md-6 col-lg-6">
+        <label class="d-block">Active</label>
+        <input type="checkbox" [(ngModel)]="active" /> 
+      </div>
+</div>
+  
+
+  <!-- <div class="actions">
+     <button (click)="onSaveClient()">Save</button>    
+    
+  </div> -->
+
+  <div class="actions">
+    <button (click)="onSaveClient()">{{savetext}}</button>
+ </div>
+</div>

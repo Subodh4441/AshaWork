@@ -1,0 +1,67 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .popup-header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #E8E8E8;
+    justify-content: flex-end;
+    padding: 18px 30px;
+  }
+
+  .popup-header a{
+    font-size: 30px;
+    color: rgb(45, 45, 45);
+  }
+  
+  .popup-body{
+    padding: 10px 30px;
+    width: 100%;
+    min-width: 50%;
+    height: auto;
+  }
+  .popup-body label{
+    margin-bottom: 10px;
+  }
+  .popup-body .input-filed{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    border: 0;
+    box-shadow: 0 2px 15px #0000001f, 0 3px 7px #0000001f;
+  }
+  .popup-body .input-filed:focus{
+    border: 0;
+    outline: none;
+  }
+  .popup-header {
+    display: flex;
+    justify-content: space-between; /* This will make the header elements spaced out */
+    align-items: center;  /* Vertically centers the text and the X button */
+  }
+ 
+  .popup-header h3 {
+    margin: 0; /* Removes default margin to keep it left aligned */
+    flex-grow: 1; /* Makes sure the h3 takes the remaining space on the left */
+  }
+ 
+  .close-button {
+    font-size: 20px;  /* Adjust the size of the close button */
+    cursor: pointer;  /* Adds a pointer cursor when hovering over the button */
+  }
+ 
+

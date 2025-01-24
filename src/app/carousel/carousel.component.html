@@ -1,0 +1,22 @@
+<div class="w-100">
+    <div id="carousel" class="carousel">
+      <div class="carousel-inner">
+        <div *ngFor="let slide of slides; let i = index" 
+              class="carousel-item slider-bg-01"
+              [class.active]="i === currentSlide">
+          <div [ngClass]="slide.bgColor">
+            <div [innerHTML]="slide.content"></div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="carousel-controls">
+        <button class="prev btn btn-secondary me-2" >‹</button>
+        <button class="next btn btn-secondary" >›</button>
+      </div> -->
+      <!-- <div class="carousel-indicators d-none d-lg-block">
+        <button *ngFor="let i of slides; let idx = index"
+        class="indicator">
+        </button>
+      </div> -->
+    </div>
+  </div>

@@ -1,0 +1,86 @@
+<div class="right-side-content">
+  <h1 class="headline">Experia</h1>
+   <hr>
+  <form (ngSubmit)="onSubmit(imageUploadForm)" #imageUploadForm="ngForm">
+    <!-- Choose Image -->
+    <div class="mb-4">
+      <label for="imageInput" class="d-block">Choose Image</label>
+      <input
+        type="file"
+        id="imageInput"
+        (change)="onImageChange($event)"
+        required
+        class="cursor"
+      />
+    </div>
+  
+    <!-- Duration -->
+    <div class="mb-4">
+      <label for="duration" class="d-block">Duration (Seconds)</label>
+      <input
+        type="number"
+        class="input-filed"
+        id="duration"
+        [(ngModel)]="imageUpload.duration"
+        name="duration"
+        placeholder="Enter duration (e.g., 20)"
+        value="20"
+        required
+      />
+    </div>
+  
+    <!-- Date Range -->
+    <div class="mt-4">
+      <div class="mb-4">
+        <label for="fromDate" class="d-block">From Date</label>
+        <input
+          type="date"
+          class="input-filed cursor"
+          id="fromDate"
+          [(ngModel)]="imageUpload.createdDate"
+          name="fromDate"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="toDate" class="d-block">To Date</label>
+        <input
+          type="date"
+          class="input-filed cursor"
+          id="toDate"
+          [(ngModel)]="imageUpload.endDate"
+          name="toDate"
+          required
+        />
+      </div>
+    </div>  
+  
+    <!-- Active Checkbox -->
+    <div class="mb-3">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="activeCheckbox"
+        [(ngModel)]="imageUpload.isActive"
+        name="isActive"
+      />
+      <label class="form-check-label" for="activeCheckbox">Active</label>
+    </div>
+  
+    <!-- Submit Button -->
+    <button type="submit" class="mt-4" [disabled]="imageUploadForm.invalid">
+      Upload
+    </button>
+  
+    <!-- Success and Error Messages -->
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+      {{ successMessage }}
+    </div>
+  
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>
+
+  

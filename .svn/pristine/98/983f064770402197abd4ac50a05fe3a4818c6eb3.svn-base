@@ -1,0 +1,90 @@
+
+<div class="right-side-content">
+    <h1 class="headline">Clients</h1>
+    <hr>
+    <div class="tabletopbuttons">
+        
+        <div class="searchcontainer">
+            <input placeholder="Search" type="search" class="input-filed" [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()">
+        </div>
+        <div class="actionbuttons">
+            <button id="" class="export" title="Add Client" [ngClass]="{'disabled': !hasAddPermission}" (click)="handleClick()">
+                <!-- <i class="fa-solid fa-plus"></i> -->
+                <!-- <i class="fa-solid  fa-circle-plus"></i> -->
+                <!-- <i class="fa-solid fa-user-plus"></i> -->
+                <i class="fa-solid fa-plus"></i>
+
+            </button>
+            <!-- <button id="" class="export" title="Bulk Upload" (click)="openbulkPopup()" aria-placeholder="Bulk Upload">
+                <i class="fa-solid fa-upload"></i>
+            </button> -->
+            <button id="export-pdf" class="export" title="Export PDF" (click)="exportPDF()">
+                <i class="fa-regular fa-file-pdf"></i>
+            </button>
+            <button id="export-excel" class="export" title="Export Excel" (click)="exportExcel()">
+                <i class="bi bi-filetype-xlsx"></i>
+            </button>
+            
+        </div>
+    </div>
+
+    <div class="table-scroll">
+        <table>
+            <thead>
+                <tr>
+                    <th>Edit</th>
+                    <th style="width: 50%;">Client Name </th>
+                    <th>Client ABBR </th>
+                    <th>Project Owner</th>
+                    <th>Status </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let client of clientsForCurrentPage">
+                    <td data-label="Edit"><i
+                        class="fa-solid fa-pen-to-square cursor"
+                        (click)="handleeditClick(client)"
+                        title="Edit"
+                      ></i></td>
+                    <td data-label="Name">{{ client.clientName }}</td>
+                    <td data-label="Abbr">{{ client.clientAbbr }}</td>
+                   
+                    <td data-label="Owner">{{ client.owner }}</td>
+                    <td data-label="Status" class="status">
+                        <!-- <span [ngClass]="{'active': client.isActive, 'inactive': !client.isActive}">
+                            {{ client.isActive ? 'Active' : 'Inactive' }}
+                        </span> -->
+
+                        <!-- <i class="fa-solid fa-check"></i>
+                           <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="activeCheckbox"
+                            [(ngModel)]="client.isActive"
+                            name="Status"
+                            disabled="true"
+                          />  -->
+                            <i *ngIf="client.isActive" class="fa-solid fa-check"></i>
+                          
+                            <i *ngIf="!client.isActive" class="fa-solid fa-xmark"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+     
+    </div>
+    <div class="pagination-controls">
+        <button class="export" (click)="changePage(1)" [disabled]="currentPage === 1"><i class="fa-solid fa-angles-left"></i></button>
+        <button class="export" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1"><i class="fa-solid fa-arrow-left"></i></button>
+        <span>Page {{ currentPage }} of {{ totalPages }}</span>
+        <button class="export" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages"><i class="fa-solid fa-arrow-right"></i></button>
+        <button class="export" (click)="changePage(totalPages)" [disabled]="currentPage === totalPages"><i class="fa-solid fa-angles-right"></i></button>
+    </div>
+
+   
+    <!-- Pagination Controls -->
+</div>
+
+          
+            

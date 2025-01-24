@@ -1,0 +1,66 @@
+<div class="right-side-content">
+  
+  
+    <div class="tabletopbuttons">
+      <!-- Search Container -->
+      <div class="searchcontainer">
+        <input placeholder="Search" type="search" class="input-filed" [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()">
+    </div>
+  
+      <!-- Action Buttons -->
+      <div class="actionbuttons">
+        <button class="export" title="Add Tenant" (click)="openAddTenant()">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <button id="export-pdf" class="export" title="Export PDF" (click)="exportPDF()">
+          <i class="fa-regular fa-file-pdf"></i>
+        </button>
+        <button id="export-excel" class="export" title="Export Excel" (click)="exportExcel()">
+          <i class="fa-regular fa-file-excel"></i>
+        </button>
+      </div>
+    </div>
+  
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Edit</th>
+            <th>Tenant ID</th>
+            <th>Tenant Name</th>
+            <th>Tenant Head</th>
+            <th>Tenant Email ID</th>
+     
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tenant of tenantsForCurrentPage">
+            <td data-label="Edit">
+              <i title="Edit" class="fa-solid fa-pen-to-square cursor" (click)="tenant.tenantID ? onEditTenant(tenant) : null"></i>
+            </td>
+            <td>{{ tenant.tenantID }}</td>
+            <td>{{ tenant.tenantName }}</td>
+            <td>{{ tenant.tenantHead }}</td>
+            <td>{{ tenant.tenantEmailID }}</td>
+            <td>
+              <i class="fa-solid fa-trash" 
+                 (click)="onDeleteTenant(tenant.tenantID)" 
+                 [title]="'Delete Tenant'"></i>
+            </td>       
+            
+    
+          </tr>
+        </tbody>
+      </table>
+  
+      <div class="pagination-controls">
+        <button class="export" (click)="changePage(1)" [disabled]="currentPage === 1"><i title="Start" class="fa-solid fa-angles-left"></i></button>
+        <button class="export" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1"><i title="Privious" class="fa-solid fa-arrow-left"></i></button>
+        <span>Page {{ currentPage }} of {{ totalPages }}</span>
+        <button class="export" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages"><i title="Next" class="fa-solid fa-arrow-right"></i></button>
+        <button class="export" (click)="changePage(totalPages)" [disabled]="currentPage === totalPages"><i title="End" class="fa-solid fa-angles-right"></i></button>
+      </div>
+  
+      </div>
+  
