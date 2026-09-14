@@ -1,7 +1,0 @@
-
-.collapse {   display: none; } 
-.collapse.show {   display: block; }
-
-.left-side-bar .card .card-body a.active {
-    opacity: 1;
-  }

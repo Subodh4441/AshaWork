@@ -1,0 +1,197 @@
+<header class="site-header">
+  <div class="shell header-row">
+    <a class="brand" href="#top" (click)="closeMenu()">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28">
+          <circle cx="16" cy="16" r="16" fill="var(--color-teal)" />
+          <path d="M9 18.5 L14 12 L18 16 L23 9.5" stroke="var(--color-pink)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">AshaWork</span>
+    </a>
+
+    <button class="menu-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="mobileMenuOpen()" aria-controls="primary-nav">
+      <span class="sr-only">Menu</span>
+      <span class="menu-toggle-bar"></span>
+      <span class="menu-toggle-bar"></span>
+      <span class="menu-toggle-bar"></span>
+    </button>
+
+    <nav id="primary-nav" class="site-nav" [class.is-open]="mobileMenuOpen()">
+      <a href="#features" (click)="closeMenu()">What it does</a>
+      <a href="#how-it-works" (click)="closeMenu()">How it works</a>
+      <a href="#stories" (click)="closeMenu()">Stories</a>
+      <a class="nav-cta" href="#register" (click)="closeMenu()">Register</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <p class="dept-tag">Department of Health &amp; Family Welfare</p>
+        <h1>The work you already do, finally easy to keep track of.</h1>
+        <p class="hero-sub">
+          AshaWork helps ASHA workers log home visits, track incentives, and stay in touch
+          with their Primary Health Centre — from a phone, even where signal comes and goes.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#register">Register as an ASHA worker</a>
+          <a class="btn btn-ghost" href="#admin">For PHC administrators</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 520 420" width="100%" height="100%">
+          <!-- ground line -->
+          <line x1="30" y1="360" x2="490" y2="360" stroke="var(--color-line)" stroke-width="2"/>
+          <!-- houses -->
+          <g>
+            <rect x="60" y="270" width="90" height="90" fill="var(--color-teal-tint)"/>
+            <polygon points="55,270 105,225 155,270" fill="var(--color-teal)"/>
+            <rect x="95" y="310" width="24" height="50" fill="var(--color-paper)"/>
+          </g>
+          <g>
+            <rect x="380" y="250" width="100" height="110" fill="var(--color-teal-tint)"/>
+            <polygon points="374,250 430,200 486,250" fill="var(--color-teal)"/>
+            <rect x="415" y="300" width="26" height="60" fill="var(--color-paper)"/>
+            <rect x="455" y="270" width="18" height="18" fill="var(--color-paper)"/>
+          </g>
+          <!-- path dots -->
+          <g fill="var(--color-pink)">
+            <circle cx="185" cy="345" r="4"/>
+            <circle cx="225" cy="335" r="4"/>
+            <circle cx="265" cy="342" r="4"/>
+            <circle cx="305" cy="330" r="4"/>
+            <circle cx="345" cy="338" r="4"/>
+          </g>
+          <!-- figure -->
+          <g transform="translate(215,150)">
+            <circle cx="30" cy="18" r="16" fill="var(--color-ink)"/>
+            <path d="M8 60 C8 35 52 35 52 60 L54 150 L38 150 L34 95 L26 95 L22 150 L6 150 Z" fill="var(--color-pink)"/>
+            <rect x="-10" y="70" width="22" height="30" rx="4" fill="var(--color-teal)"/>
+            <path d="M8 60 C-4 62 -6 78 -2 92" stroke="var(--color-ink)" stroke-width="4" fill="none" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK FACTS -->
+  <section class="facts">
+    <div class="shell facts-grid">
+      <div class="fact">
+        <p class="fact-figure">Offline-first</p>
+        <p class="fact-label">Log visits without signal; it syncs once you're back online</p>
+      </div>
+      <div class="fact">
+        <p class="fact-figure">3 taps</p>
+        <p class="fact-label">To record a completed home visit or follow-up</p>
+      </div>
+      <div class="fact">
+        <p class="fact-figure">One dashboard</p>
+        <p class="fact-label">Your PHC sees the same record you do — no separate paperwork</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="shell">
+      <h2>Built around your day, not around a form</h2>
+      <div class="feature-grid">
+        <article class="feature">
+          <h3>Visit &amp; task log</h3>
+          <p>Record home visits, immunisation follow-ups, and referrals as you finish them — offline if you need to.</p>
+        </article>
+        <article class="feature">
+          <h3>Incentive tracker</h3>
+          <p>See what you've earned this month, what's approved, and what's still pending from the PHC.</p>
+        </article>
+        <article class="feature">
+          <h3>Training library</h3>
+          <p>Short videos and job aids in your own language, downloadable for offline viewing in the field.</p>
+        </article>
+        <article class="feature">
+          <h3>Direct line to your PHC</h3>
+          <p>Message your ASHA facilitator or ANM directly, without waiting for the next monthly meeting.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="steps" id="how-it-works">
+    <div class="shell steps-grid">
+      <h2>Getting started takes three steps</h2>
+      <ol class="step-list">
+        <li>
+          <span class="step-num">1</span>
+          <div>
+            <h3>Get registered</h3>
+            <p>Your ASHA facilitator adds you using your ASHA ID and phone number.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <div>
+            <h3>Log your work daily</h3>
+            <p>Mark visits, deliveries and follow-ups as you complete them, online or off.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <div>
+            <h3>Get paid on time</h3>
+            <p>Incentives sync to the PHC dashboard, so payments are traceable and on schedule.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial" id="stories">
+    <div class="shell testimonial-inner">
+      <p class="quote">
+        "I used to carry three registers on my rounds. Now I log a visit before I've even left
+        the doorstep, and I know exactly what I'm owed at month's end."
+      </p>
+      <p class="quote-attribution">Illustrative example — replace with a real ASHA worker's story</p>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band" id="register">
+    <div class="shell cta-inner">
+      <h2>Ready to spend less time on paperwork?</h2>
+      <a class="btn btn-primary btn-large" href="#">Register your ASHA ID</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="admin">
+  <div class="shell footer-grid">
+    <div>
+      <p class="brand-name">AshaWork</p>
+      <p class="footer-note">A digital companion for Accredited Social Health Activists, built with the Department of Health &amp; Family Welfare.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Learn more</h4>
+      <a href="#">About the scheme</a>
+      <a href="#">For PHC staff</a>
+      <a href="#">Help &amp; support</a>
+      <a href="#">Privacy</a>
+    </div>
+    <div class="footer-contact">
+      <h4>Helpline</h4>
+      <p>1800-XXX-XXXX (toll-free)</p>
+      <p>support&#64;ashawork.example.gov.in</p>
+    </div>
+  </div>
+  <div class="shell footer-bottom">
+    <p>&copy; 2026 State Health Department. Built for ASHA workers.</p>
+  </div>
+</footer>
