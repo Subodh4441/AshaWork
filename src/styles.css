@@ -1,0 +1,37 @@
+/* ============================================================
+   GLOBAL STYLES & GOOGLE TRANSLATE SEAMLESS OVERRIDES
+   ============================================================ */
+
+/* Hide Google Translate top banner frame */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+/* Prevent Google Translate from shifting the page body downwards */
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+/* Hide default Google Translate gadget widget and tooltips */
+.goog-te-gadget,
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+/* Remove hover highlight boxes added by Google Translate */
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Hide skiptranslate wrapper if injected at body level */
+body > .skiptranslate {
+  display: none !important;
+}
